@@ -1,6 +1,7 @@
 from flask import Flask, Response
 import requests
 import json
+import os
 
 app = Flask(__name__)
 
@@ -48,5 +49,5 @@ def msm_weather():
     return Response(json.dumps(result, ensure_ascii=False, indent=2), mimetype='application/json')
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Renderから渡されるPORT環境変数を使用
-    app.run(host='0.0.0.0', port=port, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
