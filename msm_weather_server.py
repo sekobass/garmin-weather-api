@@ -5,6 +5,10 @@ import os
 
 app = Flask(__name__)
 
+@app.route("/")
+def index():
+    return "MSM Weather API is running. Access /msm_weather for data."
+
 @app.route('/msm_weather')
 def msm_weather():
     url = "https://www.jma.go.jp/bosai/forecast/data/forecast/170000.json"
